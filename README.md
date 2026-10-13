@@ -52,20 +52,12 @@ Aplikasi mengimplementasikan alur:
    composer install
    ```
 
-3. **Konfigurasi Environment:**
-   Salin `.env.example` ke `.env` dan sesuaikan koneksi database MySQL:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-   *Pastikan database `inventory_db` sudah dibuat pada MySQL (XAMPP).*
-
-4. **Jalankan Migrasi & Data Uji (Seeder):**
+3. **Jalankan Migrasi & Data Uji (Seeder):**
    ```bash
    php artisan migrate:fresh --seed
    ```
 
-5. **Jalankan Development Server:**
+4. **Jalankan Development Server:**
    ```bash
    php artisan serve
    ```
@@ -86,6 +78,8 @@ Aplikasi mengimplementasikan alur:
 ## 5. Bukti Pengujian Alur Lengkap (Acceptance Criteria)
 Alur: **Buka Form Tambah Produk → Validasi Error → Simpan Berhasil → Redirect → Muncul di Daftar Produk & Dashboard**
 1. Akses menu **Produk** lalu klik **Tambah Produk Baru** (`/products/create`).
-2. Masukkan input tidak valid (misal: harga bernilai minus atau SKU kosong) $ightarrow$ Form otomatis menolak dengan pesan error validasi Blade.
-3. Masukkan data valid $ightarrow$ Klik Simpan.
+2. Masukkan input tidak valid (misal: harga bernilai minus atau SKU kosong) $
+ightarrow$ Form otomatis menolak dengan pesan error validasi Blade.
+3. Masukkan data valid $
+ightarrow$ Klik Simpan.
 4. Sistem otomatis menyimpan data ke tabel `products`, mengaitkan supplier ke `product_suppliers`, redirect ke halaman index dengan *flash message* sukses, dan data langsung terhitung pada total aset di **Dashboard**.
